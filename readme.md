@@ -46,7 +46,7 @@ Broadcasts the value for listeners mapped to the object
 ##### obj
 
 *Required*  
-Type: `object  
+Type: `object`
 
 The object to limit the broadcast to. Listeners on other objects will not be called.
 
