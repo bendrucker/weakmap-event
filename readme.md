@@ -1,6 +1,6 @@
 # weakmap-event
 
-> Associate [geval](https://github.com/Raynos/geval) event listeners and broadcasts with a given object.
+> Associate [geval](https://github.com/Raynos/geval) events with a given object.
 
 Adapted from code in [Mercury](https://github.com/Raynos/mercury)'s examples.
 
