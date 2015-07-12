@@ -3,7 +3,7 @@
 var test = require('tape')
 var WeakmapEvent = require('./')
 
-test('it returns a geval event associated with an object', function (t) {
+test('returns geval event mapped to an object', function (t) {
   t.plan(1)
   var ev = WeakmapEvent()
   var obj = {}
@@ -18,18 +18,7 @@ test('it returns a geval event associated with an object', function (t) {
   ev.broadcast(obj, 'hello')
 })
 
-test('it throws if one argument passed to listen or broadcast', function (t) {
-  t.plan(2)
-  var ev = WeakmapEvent()
-  t.throws(function () {
-    ev.listen(function listener () {})
-  })
-  t.throws(function () {
-    ev.broadcast('value')
-  })
-})
-
-test('it should only listen and broadcast to a store on the same object', function (t) {
+test('dispatch events for an object', function (t) {
   t.plan(2)
   var ev = WeakmapEvent()
   var obj = {}
@@ -46,7 +35,7 @@ test('it should only listen and broadcast to a store on the same object', functi
   ev.broadcast(obj2, 'goodbye')
 })
 
-test('it should work with multiple listeners associated with the same object', function (t) {
+test('multiple listeners', function (t) {
   t.plan(2)
   var ev = WeakmapEvent()
   var obj = {}
@@ -59,4 +48,15 @@ test('it should work with multiple listeners associated with the same object', f
   })
 
   ev.broadcast(obj, 'double')
+})
+
+test('argument validation', function (t) {
+  var ev = WeakmapEvent()
+  t.throws(function () {
+    ev.listen(function listener () {})
+  }, 'listen')
+  t.throws(function () {
+    ev.broadcast('value')
+  }, 'broadcast')
+  t.end()
 })
