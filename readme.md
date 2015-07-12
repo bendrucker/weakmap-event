@@ -64,7 +64,7 @@ Listen on values emitted for a given object. Returns an `unlisten` function that
 ##### obj
 
 *Required*  
-Type: `object  
+Type: `object`
 
 The object to listen on.
 
