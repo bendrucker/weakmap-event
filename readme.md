@@ -1,6 +1,8 @@
 # weakmap-event [![Build Status](https://travis-ci.org/ajoslin/weakmap-event.svg?branch=master)](https://travis-ci.org/ajoslin/weakmap-event)
 
-> 
+> Associate [geval](https://github.com/Raynos/geval) event listeners and broadcasts with a given object.
+
+Adapted from code in [Mercury](https://github.com/Raynos/mercury)'s examples.
 
 
 ## Install
@@ -13,33 +15,28 @@ $ npm install --save weakmap-event
 ## Usage
 
 ```js
-var weakmapEvent = require('weakmap-event')
+var WeakmapEvent = require('weakmap-event')
 
-weakmapEvent('input')
-//=> output
+var onClick = WeakmapEvent()
+
+var obj1 = {}
+var obj2 = {}
+
+onClick.listen(obj1, function(data) {
+  assert.equal(data, 'hello')
+})
+onClick.listen(obj2, function(data) {
+  assert.equal(data, 'goodbye')
+})
+
+onClick.broadcast(obj1, 'hello')
+onClick.broadcast(obj2, 'goodbye')
 ```
 
 ## API
 
-#### `weakmapEvent(input, [options])` -> `output`
-
-##### input
-
-*Required*  
-Type: `string`
-
-Lorem ipsum.
-
-##### options
-
-###### foo
-
-Type: `boolean`  
-Default: `false`
-
-Lorem ipsum.
-
+#### `WeakmapEvent()` -> `{ listen: Function(obj, listener), broadcast: Function(obj, value) }`
 
 ## License
 
-MIT © [Andrew Joslin](http://ajoslin.com)
+MIT © [Jake Verbaten](http://github.com/Raynos)
