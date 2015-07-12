@@ -39,4 +39,4 @@ onClick.broadcast(obj2, 'goodbye')
 
 ## License
 
-MIT © [Jake Verbaten](http://github.com/Raynos)
+MIT, [Jake Verbaten](http://github.com/Raynos)
