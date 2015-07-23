@@ -1,6 +1,7 @@
 'use strict'
 
 var Event = require('geval/event')
+var extend = require('xtend')
 var createStore = require('weakmap-shim/create-store')
 
 module.exports = WeakmapEvent
@@ -41,6 +42,20 @@ function WeakmapEvent () {
   }
 
   function listenToHash (hash, fn) {
-    throw new Error('Not Implemented.')
+    var current = extend(hash)
+
+    Object.keys(hash()).forEach(function listenKey (k) {
+      listen(hash[k], fn)
+    })
+
+    hash(function onChange (newObj) {
+      Object.keys(hash()).forEach(function listenKey (k) {
+        if (current[k] !== hash[k]) {
+          listen(hash[k], fn)
+        }
+      })
+
+      current = extend(hash)
+    })
   }
 }
