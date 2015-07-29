@@ -1,6 +1,8 @@
 'use strict'
 
 var test = require('tape')
+var Hash = require('observ-varhash')
+var Observ = require('observ')
 var WeakmapEvent = require('./')
 
 test('returns gevental eventent mapped to an object', function (t) {
@@ -33,6 +35,32 @@ test('dispatch eventents for an object', function (t) {
 
   event.broadcast(obj, 'hello')
   event.broadcast(obj2, 'goodbye')
+})
+
+test('toHash', function (t) {
+  t.plan(3)
+  var hash = Hash({
+    a: Observ(1),
+    b: Observ(2)
+  })
+  var event = WeakmapEvent()
+
+  event.listen.toHash(hash, function (data) {
+    t.equal(data.value, 'foo')
+  })
+
+  event.broadcast(hash.a, {
+    value: 'foo'
+  })
+  event.broadcast(hash.b, {
+    value: 'foo'
+  })
+
+  // now we add a key which should be listened on
+  hash.put('c', Observ(3))
+  event.broadcast(hash.c, {
+    value: 'foo'
+  })
 })
 
 test('argument validation', function (t) {

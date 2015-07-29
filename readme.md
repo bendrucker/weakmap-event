@@ -76,6 +76,24 @@ Arguments: `value`
 
 A listener function to be called when a value is broadcasted matching the object.
 
+#### `event.listen.toHash(observable, listener)` -> `function`
+
+Listen on an observable hash.
+
+##### observable
+
+*Required*  
+Type: `function`
+
+An observable hash like [observ-struct](https://github.com/raynos/observ-struct) or [observ-varhash](https://github.com/nrw/observ-varhash).
+
+##### listener
+
+*Required*  
+Type: `function`  
+Arguments: `value`
+
+A listener function to be called when a value is broadcasted matching a value from within the hash.
 
 ## License
 
