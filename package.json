@@ -6,8 +6,8 @@
   "license": "MIT",
   "repository": "eaze/weakmap-event",
   "author": {
-    "name": "Andrew Joslin",
     "email": "andrewtjoslin@gmail.com",
+    "name": "Andrew Joslin",
     "url": "ajoslin.com"
   },
   "scripts": {
@@ -17,14 +17,14 @@
     "weakmap geval"
   ],
   "devDependencies": {
-    "tape": "^4.0.0",
-    "standard": "^4.0.0"
+    "standard": "^4.0.0",
+    "tape": "^4.0.0"
   },
   "files": [
     "index.js"
   ],
   "dependencies": {
-    "geval": "^2.1.1",
-    "weakmap-shim": "^1.1.0"
+    "geval": "~2.1.1",
+    "weakmap-shim": "~1.1.0"
   }
 }
