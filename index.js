@@ -43,22 +43,31 @@ function WeakmapEvent () {
 
   function listenToHash (hash, fn) {
     var current = extend(hash)
+    var unlisteners = {}
 
     forEach(hash, listenKey)
     hash(onChange)
 
+    return unlisten
+
     function listenKey (key) {
-      listen(hash[key], fn)
+      unlisteners[key] = listen(hash[key], fn)
     }
 
     function onChange () {
       forEach(hash, function (key) {
         if (current[key] !== hash[key]) {
-          listen(hash[key], fn)
+          listenKey(key)
         }
       })
 
       current = extend(hash)
+    }
+
+    function unlisten () {
+      for (var key in unlisteners) {
+        unlisteners[key]()
+      }
     }
   }
 }

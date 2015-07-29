@@ -45,7 +45,7 @@ test('toHash', function (t) {
   })
   var event = WeakmapEvent()
 
-  event.listen.toHash(hash, function (data) {
+  var unlisten = event.listen.toHash(hash, function (data) {
     t.equal(data.value, 'foo')
   })
 
@@ -59,6 +59,11 @@ test('toHash', function (t) {
   // now we add a key which should be listened on
   hash.put('c', Observ(3))
   event.broadcast(hash.c, {
+    value: 'foo'
+  })
+
+  unlisten()
+  event.broadcast(hash.a, {
     value: 'foo'
   })
 })
