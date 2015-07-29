@@ -79,4 +79,4 @@ A listener function to be called when a value is broadcasted matching the object
 
 ## License
 
-MIT, [Jake Verbaten](http://github.com/Raynos)
+MIT © [Eaze Solutions](http://eazeup.com)
