@@ -57,7 +57,7 @@ Type: `any`
 
 The value to broadcast to matched listeners.
 
-#### `event.listen(obj, listener)` -> `unlisten`
+#### `event.listen(obj, listener)` -> `function`
 
 Listen on values emitted for a given object. Returns an `unlisten` function that will disable the listener when called.
 
