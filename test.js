@@ -35,21 +35,6 @@ test('dispatch events for an object', function (t) {
   ev.broadcast(obj2, 'goodbye')
 })
 
-test('multiple listeners', function (t) {
-  t.plan(2)
-  var ev = WeakmapEvent()
-  var obj = {}
-
-  ev.listen(obj, function (data) {
-    t.equal(data, 'double')
-  })
-  ev.listen(obj, function (data) {
-    t.equal(data, 'double')
-  })
-
-  ev.broadcast(obj, 'double')
-})
-
 test('argument validation', function (t) {
   var ev = WeakmapEvent()
   t.throws(function () {
