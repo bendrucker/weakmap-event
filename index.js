@@ -68,6 +68,7 @@ function WeakmapEvent () {
       for (var key in unlisteners) {
         unlisteners[key]()
       }
+      unlisteners = {}
     }
   }
 }

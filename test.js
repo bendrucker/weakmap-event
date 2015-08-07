@@ -38,7 +38,7 @@ test('dispatch eventents for an object', function (t) {
 })
 
 test('toHash', function (t) {
-  t.plan(3)
+  t.plan(4)
   var hash = Hash({
     a: Observ(1),
     b: Observ(2)
@@ -63,6 +63,7 @@ test('toHash', function (t) {
   })
 
   unlisten()
+  t.doesNotThrow(unlisten)
   event.broadcast(hash.a, {
     value: 'foo'
   })
