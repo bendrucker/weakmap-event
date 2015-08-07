@@ -38,7 +38,7 @@ test('dispatch eventents for an object', function (t) {
 })
 
 test('toHash', function (t) {
-  t.plan(4)
+  t.plan(5)
   var hash = Hash({
     a: Observ(1),
     b: Observ(2)
@@ -66,6 +66,14 @@ test('toHash', function (t) {
   var a = hash.a
   hash.delete('a')
   event.broadcast(a, {
+    value: 'foo'
+  })
+
+  // when a value changes, the old value should no longer work
+  var b = hash.b
+  hash.put('b', Observ(2))
+  t.notEqual(b, hash.b)
+  event.broadcast(b, {
     value: 'foo'
   })
 
