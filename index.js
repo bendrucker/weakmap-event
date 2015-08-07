@@ -3,6 +3,7 @@
 var Event = require('geval/event')
 var createStore = require('weakmap-shim/create-store')
 var extend = require('xtend')
+var keyDifference = require('key-difference')
 
 module.exports = WeakmapEvent
 
@@ -54,9 +55,15 @@ function WeakmapEvent () {
       unlisteners[key] = listen(hash[key], fn)
     }
 
+    function unlistenKey (key) {
+      unlisteners[key]()
+    }
+
     function onChange () {
+      keyDifference(current, hash()).forEach(unlistenKey)
       forEach(hash, function (key) {
         if (current[key] !== hash[key]) {
+          if (current[key]) unlistenKey(key)
           listenKey(key)
         }
       })

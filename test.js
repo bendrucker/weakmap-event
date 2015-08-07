@@ -62,9 +62,16 @@ test('toHash', function (t) {
     value: 'foo'
   })
 
+  // and remove one that should not
+  var a = hash.a
+  hash.delete('a')
+  event.broadcast(a, {
+    value: 'foo'
+  })
+
   unlisten()
   t.doesNotThrow(unlisten)
-  event.broadcast(hash.a, {
+  event.broadcast(hash.b, {
     value: 'foo'
   })
 })

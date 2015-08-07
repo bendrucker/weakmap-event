@@ -28,6 +28,7 @@
   ],
   "dependencies": {
     "geval": "~2.1.1",
+    "key-difference": "~1.0.0",
     "weakmap-shim": "~1.1.0",
     "xtend": "~4.0.0"
   }
