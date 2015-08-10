@@ -3,6 +3,7 @@
 var test = require('tape')
 var Hash = require('observ-varhash')
 var Observ = require('observ')
+var ObservArray = require('observ-array')
 var WeakmapEvent = require('./')
 
 test('returns gevental eventent mapped to an object', function (t) {
@@ -80,6 +81,20 @@ test('toHash', function (t) {
   unlisten()
   t.doesNotThrow(unlisten)
   event.broadcast(hash.b, {
+    value: 'foo'
+  })
+})
+
+test('toArray', function (t) {
+  t.plan(1)
+  var arr = ObservArray([Observ(1)])
+  var event = WeakmapEvent()
+
+  event.listen.toArray(arr, function (data) {
+    t.equal(data.value, 'foo')
+  })
+
+  event.broadcast(arr.get(0), {
     value: 'foo'
   })
 })
