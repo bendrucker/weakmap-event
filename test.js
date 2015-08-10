@@ -3,6 +3,7 @@
 var test = require('tape')
 var Hash = require('observ-varhash')
 var Observ = require('observ')
+var ObservArray = require('observ-array')
 var WeakmapEvent = require('./')
 
 test('returns gevental eventent mapped to an object', function (t) {
@@ -38,14 +39,14 @@ test('dispatch eventents for an object', function (t) {
 })
 
 test('toHash', function (t) {
-  t.plan(5)
+  t.plan(3)
   var hash = Hash({
     a: Observ(1),
     b: Observ(2)
   })
   var event = WeakmapEvent()
 
-  var unlisten = event.listen.toHash(hash, function (data) {
+  event.listen.toHash(hash, function (data) {
     t.equal(data.value, 'foo')
   })
 
@@ -61,25 +62,28 @@ test('toHash', function (t) {
   event.broadcast(hash.c, {
     value: 'foo'
   })
+})
 
-  // and remove one that should not
-  var a = hash.a
-  hash.delete('a')
-  event.broadcast(a, {
+test('toArray', function (t) {
+  t.plan(3)
+  var arr = ObservArray([Observ(1)])
+  var event = WeakmapEvent()
+
+  event.listen.toArray(arr, function (data) {
+    t.equal(data.value, 'foo')
+  })
+
+  event.broadcast(arr.get(0), {
     value: 'foo'
   })
 
-  // when a value changes, the old value should no longer work
-  var b = hash.b
-  hash.put('b', Observ(2))
-  t.notEqual(b, hash.b)
-  event.broadcast(b, {
+  arr.push(Observ(2))
+  event.broadcast(arr.get(1), {
     value: 'foo'
   })
 
-  unlisten()
-  t.doesNotThrow(unlisten)
-  event.broadcast(hash.b, {
+  arr.unshift(Observ(0))
+  event.broadcast(arr.get(0), {
     value: 'foo'
   })
 })

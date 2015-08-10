@@ -3,6 +3,7 @@
 var Event = require('geval/event')
 var createStore = require('weakmap-shim/create-store')
 var createHashListener = require('./object')
+var createArrayListener = require('./array')
 
 module.exports = WeakmapEvent
 
@@ -10,7 +11,7 @@ function WeakmapEvent () {
   var store = createStore()
 
   listen.toHash = createHashListener(listen)
-  listen.toArray = listenToArray
+  listen.toArray = createArrayListener(listen)
 
   return {
     broadcast: broadcast,
@@ -35,9 +36,5 @@ function WeakmapEvent () {
     var eventStore = store(obj)
     eventStore.event = eventStore.event || Event()
     return eventStore.event
-  }
-
-  function listenToArray (arr, fn) {
-    throw new Error('Not Implemented.')
   }
 }

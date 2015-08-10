@@ -18,6 +18,7 @@
   ],
   "devDependencies": {
     "observ": "~0.2.0",
+    "observ-array": "~3.2.1",
     "observ-struct": "~6.0.0",
     "observ-varhash": "~1.0.6",
     "standard": "^4.0.0",
@@ -25,7 +26,8 @@
   },
   "files": [
     "index.js",
-    "object.js"
+    "object.js",
+    "array.js"
   ],
   "dependencies": {
     "geval": "~2.1.1",
