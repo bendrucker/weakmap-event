@@ -86,7 +86,7 @@ test('toHash', function (t) {
 })
 
 test('toArray', function (t) {
-  t.plan(2)
+  t.plan(3)
   var arr = ObservArray([Observ(1)])
   var event = WeakmapEvent()
 
@@ -100,6 +100,11 @@ test('toArray', function (t) {
 
   arr.push(Observ(2))
   event.broadcast(arr.get(1), {
+    value: 'foo'
+  })
+
+  arr.unshift(Observ(0))
+  event.broadcast(arr.get(0), {
     value: 'foo'
   })
 })
