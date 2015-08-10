@@ -24,7 +24,8 @@
     "tape": "^4.0.0"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "object.js"
   ],
   "dependencies": {
     "geval": "~2.1.1",
