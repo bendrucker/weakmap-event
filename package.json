@@ -14,7 +14,10 @@
     "test": "standard && tape test.js"
   },
   "keywords": [
-    "weakmap geval"
+    "weakmap",
+    "event",
+    "geval",
+    "functional"
   ],
   "devDependencies": {
     "observ": "~0.2.0",
