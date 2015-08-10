@@ -76,7 +76,7 @@ Arguments: `value`
 
 A listener function to be called when a value is broadcasted matching the object.
 
-#### `event.listen.toHash(observable, listener)` -> `function`
+#### `event.listen.toHash(observable, listener)` -> `undefined`
 
 Listen on an observable hash.
 
