@@ -95,6 +95,26 @@ Arguments: `value`
 
 A listener function to be called when a value is broadcasted matching a value from within the hash.
 
+
+#### `event.listen.toArray(observable, listener)` -> `undefined`
+
+Listen on an observable array.
+
+##### observable
+
+*Required*  
+Type: `function`
+
+An observable array from [observ-array](https://github.com/raynos/observ-array).
+
+##### listener
+
+*Required*  
+Type: `function`  
+Arguments: `value`
+
+A listener function to be called when a value is broadcasted matching a value from within the array.
+
 ## License
 
 MIT © [Eaze Solutions](http://eazeup.com)
