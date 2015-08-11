@@ -82,8 +82,8 @@ test('toArray', function (t) {
     value: 'foo'
   })
 
-  arr.unshift(Observ(0))
-  event.broadcast(arr.get(0), {
+  arr.push(Observ(3), Observ(4), Observ(5))
+  event.broadcast(arr.get(3), {
     value: 'foo'
   })
 
