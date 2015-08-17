@@ -1,10 +1,8 @@
 'use strict'
 
-var extend = require('xtend')
-
 module.exports = function createArrayListener (listen) {
   return function listenToArray (arr, fn) {
-    var current = extend(arr._list)
+    var current = arr._list.slice()
 
     arr.forEach(function (item) {
       listen(item, fn)
@@ -15,14 +13,15 @@ module.exports = function createArrayListener (listen) {
       var diff = data._diff
       diff.forEach(function (change) {
         var index = change[0]
-        for (var i = index; i < change.length; i++) {
+        var remove = change[1]
+        for (var i = index + remove; i < change.length; i++) {
           if (current[i] !== arr.get(i)) {
             listen(arr.get(i), fn)
           }
         }
       })
 
-      current = extend(arr._list)
+      current = arr._list.slice()
     }
   }
 }
