@@ -12,6 +12,7 @@ module.exports = function createArrayListener (listen) {
     arr(onChange)
 
     function onChange (data) {
+      if (!arr.getLength()) return
       var diff = data._diff
       diff.forEach(function (change) {
         var index = change[0]
