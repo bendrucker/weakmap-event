@@ -91,6 +91,8 @@ test('toArray', function (t) {
   event.broadcast(arr.get(0), {
     value: 'foo'
   })
+
+  arr.splice(3, 1)
 })
 
 test('argument validation', function (t) {

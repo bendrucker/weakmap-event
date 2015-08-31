@@ -17,7 +17,7 @@ module.exports = function createArrayListener (listen) {
       diff.forEach(function (change) {
         var index = change[0]
         for (var i = index; i < change.length; i++) {
-          if (current[i] !== arr.get(i)) {
+          if (current[i] !== arr.get(i) && arr.get(i)) {
             listen(arr.get(i), fn)
           }
         }
