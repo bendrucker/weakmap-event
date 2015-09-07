@@ -1,4 +1,4 @@
-# weakmap-event
+# weakmap-event [![Build Status](https://travis-ci.org/eaze/weakmap-event.svg)](https://travis-ci.org/eaze/weakmap-event)
 
 > Associate [geval](https://github.com/Raynos/geval) events with a given object.
 
