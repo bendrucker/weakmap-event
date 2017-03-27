@@ -33,7 +33,7 @@
     "array.js"
   ],
   "dependencies": {
-    "geval": "~2.1.1",
+    "geval": "~2.2.0",
     "key-difference": "~1.0.0",
     "weakmap-shim": "~1.1.0",
     "xtend": "~4.0.0"
