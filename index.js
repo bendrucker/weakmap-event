@@ -19,9 +19,6 @@ function WeakmapEvent () {
   }
 
   function broadcast (obj, value) {
-    if (arguments.length === 1) {
-      throw new Error('WeakmapEvent#broadcast expects arguments (obj, value)')
-    }
     return getEvent(obj).broadcast(value, obj)
   }
 

@@ -95,13 +95,10 @@ test('toArray', function (t) {
   arr.splice(3, 1)
 })
 
-test('argument validation', function (t) {
+test('#listen argument validation', function (t) {
   var event = WeakmapEvent()
   t.throws(function () {
     event.listen(function listener () {})
   }, 'listen')
-  t.throws(function () {
-    event.broadcast('value')
-  }, 'broadcast')
   t.end()
 })
