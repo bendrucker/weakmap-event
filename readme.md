@@ -1,4 +1,4 @@
-# weakmap-event [![Build Status](https://travis-ci.org/eaze/weakmap-event.svg)](https://travis-ci.org/eaze/weakmap-event)
+# weakmap-event [![Build Status](https://travis-ci.org/bendrucker/weakmap-event.svg)](https://travis-ci.org/bendrucker/weakmap-event)
 
 > Associate [geval](https://github.com/Raynos/geval) events with a given object.
 
@@ -117,4 +117,4 @@ A listener function to be called when a value is broadcasted matching a value fr
 
 ## License
 
-MIT © [Eaze Solutions](http://eazeup.com)
+MIT © [Ben Drucker](http://bendrucker.me)

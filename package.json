@@ -4,11 +4,11 @@
   "version": "2.0.7",
   "description": "",
   "license": "MIT",
-  "repository": "eaze/weakmap-event",
+  "repository": "bendrucker/weakmap-event",
   "author": {
-    "email": "andrewtjoslin@gmail.com",
-    "name": "Andrew Joslin",
-    "url": "ajoslin.com"
+    "email": "bvdrucker@gmail.com",
+    "name": "Ben Drucker",
+    "url": "bendrucker.me"
   },
   "scripts": {
     "test": "standard && tape test.js"
