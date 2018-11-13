@@ -1,4 +1,4 @@
-# weakmap-event [![Build Status](https://travis-ci.org/bendrucker/weakmap-event.svg)](https://travis-ci.org/bendrucker/weakmap-event)
+# weakmap-event [![Build Status](https://travis-ci.org/bendrucker/weakmap-event.svg)](https://travis-ci.org/bendrucker/weakmap-event) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/weakmap-event.svg)](https://greenkeeper.io/)
 
 > Associate [geval](https://github.com/Raynos/geval) events with a given object.
 
