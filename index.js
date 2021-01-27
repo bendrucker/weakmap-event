@@ -14,8 +14,8 @@ function WeakmapEvent () {
   listen.toArray = createArrayListener(listen)
 
   return {
-    broadcast: broadcast,
-    listen: listen
+    broadcast,
+    listen
   }
 
   function broadcast (obj, value) {
